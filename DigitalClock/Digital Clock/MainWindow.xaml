@@ -11,8 +11,8 @@
             <StackPanel VerticalAlignment="Top">
                 <TextBlock Text="Digital Clock" Foreground="White" FontSize="30" FontWeight="Bold" FontFamily="\Assets\#Telidon"
                        TextAlignment="Center" Margin="0,20,0,0"/>
-                <TextBlock Text="Select Region"  Foreground="White" FontSize="15" Margin="10,0,0,0" FontWeight="Bold" FontStyle="Italic"/>
-                <ComboBox x:Name="Region"  SelectionChanged="Region_SelectionChanged"  Width="160" Height="25" HorizontalAlignment="Left" Margin="10,5,0,0"/>
+                <TextBlock Text="Select Region"  Foreground="White" FontSize="15" Margin="10,0,0,0" FontFamily="Times New Roman"/>
+                <ComboBox x:Name="Region" FontFamily="Times New Roman"  SelectionChanged="Region_SelectionChanged"  Width="160" Height="25" HorizontalAlignment="Left" Margin="10,5,0,0"/>
             </StackPanel>
             <Label x:Name="HourMinute" Height="150" Width="280" Content="00:00" Foreground="White"  FontSize="100" FontWeight="Bold" Padding="10" 
                 HorizontalAlignment="Center"
@@ -29,12 +29,46 @@
                        VerticalAlignment="Center"
                        FontFamily="Assets/#Telidon"
                        Foreground="White" Margin="310,20,0,0"/>
-            <TextBlock Text="DATE" Height="40" Width="120" FontSize="25" Foreground="White"
+            <StackPanel Margin="30,5,0,0">
+                <TextBlock Text="DATE" Height="30" Width="120" FontSize="25" Foreground="White"
                        FontFamily="Assets/#Telidon"
-                       HorizontalAlignment="Left" Margin="40,100,0,0">
+                       HorizontalAlignment="Left" Margin="21,220,0,0">
+                </TextBlock>
+                <StackPanel Orientation="Horizontal" Height="50" Width="200" HorizontalAlignment="Left" Margin="40,0,0,0">
+                    <Border BorderBrush="White"
+                        Width="35"
+                        Height="35"
+                        BorderThickness="2,2">
+                        <TextBlock x:Name="dateofday" TextAlignment="Center" FontFamily="Assets/#Telidon" FontWeight="Bold" Foreground="White"  FontSize="25" Width="35" Height="35" Margin="0,0,2,5"/>
+                    </Border>
+                    <Border BorderBrush="White"
+                        Width="35"
+                        Height="35"
+                        BorderThickness="0,2">
+                        <TextBlock x:Name="month" TextAlignment="Center" FontFamily="Assets/#Telidon" FontWeight="Bold" Foreground="White" FontSize="25" Width="35" Height="35" Margin="0,0,2,5"/>
+                    </Border>
+                    <Border BorderBrush="White"
+                        Width="70"
+                        Height="35"
+                        BorderThickness="2,2">
+                        <TextBlock x:Name="year" TextAlignment="Center" FontFamily="Assets/#Telidon" FontWeight="Bold" Foreground="White" FontSize="25" Width="60" Height="35" Margin="2.4,0,4.8,-3.4" VerticalAlignment="Bottom"/>
+                    </Border>
+                </StackPanel>
+                <TextBlock Text="DAY" Height="30" Width="120" FontSize="25" Foreground="White"
+                       FontFamily="Assets/#Telidon"
+                       HorizontalAlignment="Right" Margin="0,-135,50,0"/>
+                <Border Width="120" Height="35"
+                        Margin="0,-60,30,0"
+                        BorderThickness="2"
+                        BorderBrush="White"
+                        HorizontalAlignment="Right">
+                    <TextBlock x:Name="Day" Height="30" TextAlignment="Center" Width="120" FontSize="25" Foreground="White"
+                       FontFamily="Assets/#Telidon"
+                        Margin="0,0,0,0" />
+                </Border>
                 
-            </TextBlock>
-        </Grid>
+            </StackPanel>
+               </Grid>
         
     </Grid>
 </Window>

@@ -45,16 +45,24 @@ namespace Digital_Clock
         private void dispatcherTimer_tick(object sender, EventArgs e)
         {
             GetTime = new Time();
-            HourMinute.Content = GetTime.Hour(Region.SelectedItem.ToString())+":"+GetTime.Minute(Region.SelectedItem.ToString());
-            Seconds.Content = GetTime.Second(Region.SelectedItem.ToString());
-            TT.Content = GetTime.AmORPm(Region.SelectedItem.ToString());
+            DateTimeDetails();
+
+        }
+        public void DateTimeDetails()
+        {
+            GetTime.TimeZoneConverter(Region.SelectedItem.ToString());
+            HourMinute.Content = GetTime.Hour + ":" + GetTime.Minute;
+            Seconds.Content = GetTime.Second;
+            TT.Content = GetTime.AmORPm;
+            dateofday.Text = GetTime.Date;
+            month.Text = GetTime.Month;
+            year.Text = GetTime.Year;
+            Day.Text = GetTime.Day;
         }
 
         private void Region_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            HourMinute.Content = GetTime.Hour(Region.SelectedItem.ToString()) + ":" + GetTime.Minute(Region.SelectedItem.ToString());
-            Seconds.Content = GetTime.Second(Region.SelectedItem.ToString());
-            TT.Content = GetTime.AmORPm(Region.SelectedItem.ToString());
+            DateTimeDetails();
         }
     }
 }

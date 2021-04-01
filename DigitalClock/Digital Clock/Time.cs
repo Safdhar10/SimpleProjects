@@ -19,44 +19,75 @@ namespace Digital_Clock
             tzi = TZConvert.GetTimeZoneInfo(TimeZone);
             dt = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tzi);
         }
-        public string Hour(string Zone)
-        {
-            TimeZoneConverter(Zone);
-            //string _hour = dt.Hour + ":";
+        private string _hour;
+        private string _minute;
+        private string _second;
+        private string _amORPm;
+        private string _date;
+        private string _month;
+        private string _year;
+        private string _day;
 
-            //if (dt.Hour<=9)
-            //{
-            //    _hour = "0" + dt.Hour +":";
-            //}
-            //return _hour;
-            return dt.ToString("hh");
-        }
-        public string Minute(string Zone)
+        public string Hour
         {
-            TimeZoneConverter(Zone);
-            //string _minute = dt.Minute.ToString();
-            //if (dt.Minute <= 9)
-            //{
-            //    _minute = "0" + dt.Minute.ToString();
-            //}
-            //return _minute;
-            return dt.ToString("mm");
+            get
+            {
+                return dt.ToString("hh");
+            }
         }
-        public string Second(String Zone)
+        public string Minute
         {
-            TimeZoneConverter(Zone);
-            //string _second = dt.Second.ToString(); 
-            //if (dt.Second <= 9)
-            //{
-            //    _second = "0" + dt.Second.ToString();
-            //}
-            //return _second;
-            return dt.ToString("ss");
+            get
+            {
+                return dt.ToString("mm");
+            }
         }
-        public string AmORPm(String Zone)
+        public string Second
         {
-            TimeZoneConverter(Zone);
-            return dt.ToString("tt");
+            get
+            {
+                return dt.ToString("ss");
+            }
+            
+        }
+        public string AmORPm
+        {
+            get
+            {
+                return dt.ToString("tt");
+            }
+            
+        }
+        public string Date
+        {
+            get
+            {
+                return dt.ToString("dd");
+            }
+            
+        }
+        public string Month
+        {
+            get
+            {
+                return dt.ToString("MM");
+            }
+            
+        }
+        public string Year
+        {
+            get
+            {
+                return dt.ToString("yyyy");
+            }
+            
+        }
+        public string Day
+        {
+            get
+            {
+                return dt.ToString("dddd");
+            }
         }
     }
 }
