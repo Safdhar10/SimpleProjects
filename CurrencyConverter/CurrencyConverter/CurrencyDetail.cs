@@ -10,7 +10,6 @@ namespace CurrencyConverter
     {
         //191df415b7-f9a2494e96-qqxhve
         private string _currencyAbbrevation;
-        private string _currencyFullForm;
         private double _currencyRate;
         public string CurrencyAbbrevation
         {
@@ -23,17 +22,7 @@ namespace CurrencyConverter
                 _currencyAbbrevation = value;
             }
         }
-        public string CurrencyFullForm
-        {
-            get
-            {
-                return _currencyFullForm;
-            }
-            set
-            {
-                _currencyFullForm = value;
-            }
-        }
+       
         public double CurrencyRate
         {
             get

@@ -100,6 +100,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Currency.cs" />
     <Compile Include="CurrencyDetail.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -129,6 +130,8 @@
     <Resource Include="Assets\Bread.ttf" />
     <Resource Include="Assets\BreadRough-WyJrO.ttf" />
     <Resource Include="Assets\DeliciousBread-ZVy2z.ttf" />
+    <Resource Include="Assets\Skullsandcrossbones-RppKM.ttf" />
+    <Resource Include="Assets\Progress.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
