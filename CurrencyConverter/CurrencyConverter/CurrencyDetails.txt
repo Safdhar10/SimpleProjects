@@ -1,0 +1,32 @@
+USD:US dollar:1.1746	
+JPY:Japanese yen:130.03	
+BGN:Bulgarian lev:1.9558	
+CZK:Czech koruna:26.085	
+DKK:Danish krone:7.4379	
+GBP:Pound sterling:0.85195	
+HUF:Hungarian forint:361.84	
+PLN:Polish zloty:4.6089	
+RON:Romanian leu:4.9088	
+SEK:Swedish krona:10.2753	
+CHF:Swiss franc:1.1099	
+ISK:Icelandic krona:148.70	
+NOK:Norwegian krone:10.0408	
+HRK:Croatian kuna:7.5705	
+RUB:Russian rouble:89.5944	
+TRY:Turkish lira:9.5903	
+AUD:Australian dollar:1.5500	
+BRL:Brazilian real:6.6149	
+CAD:Canadian dollar:1.4787	
+CNY:Chinese yuan renminbi:7.7195	
+HKD:Hong Kong dollar:9.1346	
+IDR:Indonesian rupiah:17068.23	
+ILS:Israeli shekel:3.9150	
+INR:Indian rupee:86.2275	
+KRW:South Korean won:1328.36	
+MXN:Mexican peso:23.8792	
+MYR:Malaysian ringgit:4.8693	
+NZD:New Zealand dollar:1.6806	
+PHP:Philippine peso:57.076	
+SGD:Singapore dollar:1.5801	
+THB:Thai baht:36.730	
+ZAR:South African rand:17.2074

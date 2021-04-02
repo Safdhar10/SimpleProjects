@@ -1,0 +1,106 @@
+﻿<Window x:Class="CurrencyConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CurrencyConverter"
+        mc:Ignorable="d"
+        Title="Currency Converter" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1.5" StartPoint="0.5,0.03">
+                <GradientStop Color="#290149" Offset="0"/>
+                <GradientStop Color="#151515" Offset="0.567"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="400"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="1" BorderThickness="5" CornerRadius="10">
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1.5" StartPoint="0.5,0.03">
+                    <GradientStop Color="#ff005c" Offset="0"/>
+                    <GradientStop Color="#ff005c" Offset="0.567"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Rectangle Width="800" RadiusX="5" RadiusY="5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1.0" StartPoint="0.5,0.03">
+                        <GradientStop Color="#383e56" Offset="0"/>
+                        <GradientStop Color="#290149" Offset="0.567"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Border>
+        <StackPanel Grid.Row="1" Width="800">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Enter Amount" FontSize="25" FontFamily="Assets/#Bread" Foreground="White"
+                       Margin="35" />
+                <Label Content="From" FontSize="25" FontFamily="Assets/#Bread" Foreground="White"
+                       Margin="100,35"/>
+                <Label Content="To" FontSize="25" FontFamily="Assets/#Bread" Foreground="White"
+                       Margin="75,35"/>
+            </StackPanel>
+            <StackPanel Width="800">
+                <Border CornerRadius="4" BorderThickness="2" BorderBrush="BlueViolet" HorizontalAlignment="Left" Width="150" Height="25" 
+                        Margin="35,-40,0,0">
+                    <TextBox  x:Name="AmountConverter"/>
+                </Border>
+                <Border CornerRadius="4" BorderThickness="2" BorderBrush="BlueViolet" HorizontalAlignment="Center" Width="150" Height="25" 
+                        Margin="0,-40,10,0">
+                    <ComboBox x:Name="FromConverter" SelectionChanged="FromConverter_SelectionChanged" DisplayMemberPath="CurrencyAbbrevation" SelectedValue="CurrencyRate"/>
+                </Border>
+                <Border CornerRadius="4" BorderThickness="2" BorderBrush="BlueViolet" HorizontalAlignment="Right" Width="150" Height="25" 
+                        Margin="0,-40,95,0">
+                    <ComboBox x:Name="ToConverter" SelectionChanged="ToConverter_SelectionChanged" DisplayMemberPath="CurrencyAbbrevation"/>
+                </Border>
+            </StackPanel>
+            <!--<StackPanel Width="800" Orientation="Horizontal">
+                <Label Content="Converted Currency " Width="220" Foreground="White" FontFamily="Assets/#Bread"
+                       FontSize="25" Margin="180,10,0,0"/>
+                <TextBlock x:Name="ConvertedCurrency" Text="0" FontSize="20" FontFamily="Times New Roman" FontWeight="Bold" Width="150" Height="25" Background="WhiteSmoke"
+                          TextAlignment="Center" Margin="0,10,0,0"/>
+            </StackPanel>-->
+            <StackPanel Orientation="Horizontal" >
+                <Button Content="Convert" Click="Convert_Click" Width="100" Height="25" FontFamily="Assets/#Bread" FontSize="20" Margin="250,10,50,0">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1.5" StartPoint="0.5,0.03">
+                            <GradientStop Color="#ff005c" Offset="0"/>
+                            <GradientStop Color="#ff005c" Offset="0.567"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="Clear" Click="Button_Click" Width="100" Height="25" FontFamily="Assets/#Bread" FontSize="20" Margin="0,10,0,0">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1.5" StartPoint="0.5,0.03">
+                            <GradientStop Color="#ff005c" Offset="0"/>
+                            <GradientStop Color="#ff005c" Offset="0.567"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Width="800">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="BeforeConvertedCurrency" Width="200" Height="35" FontFamily="Assets/#Bread" FontSize="25" Foreground="White" Content="USD"
+                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="190,10,0,0"/>
+                <Label x:Name="AfterConvertedCurrency" Width="200" Height="35" FontFamily="Assets/#Bread" FontSize="25" Foreground="White"
+                       HorizontalAlignment="Center" VerticalAlignment="Center" Content="ToInr"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="FromConvert" Width="200" Height="35" FontFamily="Assets/#Bread" FontSize="25" Foreground="White" Content="USD"
+                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="190,10,0,0"/>
+                <Label x:Name="ToConvert" Width="200" Height="35" FontFamily="Assets/#Bread" FontSize="25" Foreground="White"
+                       HorizontalAlignment="Center" VerticalAlignment="Center" Content="ToInr"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="OneFrom" Width="200" Height="35" FontFamily="Assets/#Bread" FontSize="25" Foreground="White" Content="USD"
+                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="190,10,0,0"/>
+                <Label x:Name="OneTo" Width="200" Height="35" FontFamily="Assets/#Bread" FontSize="25" Foreground="White"
+                       HorizontalAlignment="Center" VerticalAlignment="Center" Content="ToInr"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
