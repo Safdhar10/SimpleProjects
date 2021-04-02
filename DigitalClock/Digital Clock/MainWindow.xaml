@@ -22,13 +22,13 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="Assets/#Seven Segment"
-                       Foreground="White" Margin="100,0,0,100"/>
+                       Foreground="White" Margin="250,0,0,100"/>
             <Label x:Name="Seconds" Content="00"
                        FontSize="50"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="Assets/#Seven Segment"
-                       Foreground="White" Margin="100,10,0,0"/>
+                       Foreground="White" Margin="250,10,0,0"/>
             <StackPanel Margin="30,5,0,0">
                 <TextBlock Text="DATE" Height="30" Width="120" FontSize="25" Foreground="White"
                        FontFamily="Assets/#Seven Segment"
