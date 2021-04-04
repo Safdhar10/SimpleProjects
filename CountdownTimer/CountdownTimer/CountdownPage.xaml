@@ -1,0 +1,47 @@
+﻿<Page x:Class="CountdownTimer.CountdownPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CountdownTimer"
+      mc:Ignorable="d" 
+      d:DesignHeight="220" d:DesignWidth="500"
+      Title="CountdownPage">
+    <Page.Resources>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="FlowDirection" Value="LeftToRight"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label x:Name="Time" Height="100" Width="500" Margin="150,60,0,0"
+                   Content="00:00:00" FontFamily="Assets/#Seven Segment"
+                   FontSize="75"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" x:Name="startPanel">
+            <Button Background="#caf7e3" Width="65" Height="65" FontFamily="Arial" FontSize="25" Margin="0,0,0,0" Click="strtBtn">
+                <StackPanel >
+                    <Image  Source="Assets/start.png" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" x:Name="pausePanel" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Hidden">
+            <Button Background="#caf7e3" Width="65" Height="65" Click="pauseBtn">
+                <Image  Source="Assets/pause1.png" />
+            </Button>
+        </StackPanel>
+        <StackPanel x:Name="stopPanel" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Hidden">
+            <Button x:Name="stop" Click="stopBtn" Background="#caf7e3" Width="65" Height="65">
+                <Image  Source="Assets/stop.jpg" />
+            </Button>
+            <Button x:Name="resume" Background="#caf7e3" Width="65" Height="65" Margin="20,0,0,0" Click="resumeBtn">
+                <Image  Source="Assets/resume.png" />
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>
