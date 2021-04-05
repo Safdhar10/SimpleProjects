@@ -67,7 +67,7 @@
             </StackPanel>
             <StackPanel Grid.Row="1" >
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBox x:Name="Result" Text="Password" Height="50" IsReadOnly="True"
+                    <TextBox x:Name="Result" Text="" Height="50" IsReadOnly="True"
                            Width="300" FontSize="20" VerticalContentAlignment="Center" FontFamily="Consolas"
                            HorizontalContentAlignment="Center" 
                            Background="White"/>
