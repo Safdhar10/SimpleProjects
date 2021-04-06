@@ -1,0 +1,265 @@
+﻿<Window x:Class="Loan_Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Loan_Calculator"
+        mc:Ignorable="d"
+        Title="Loan Calculator" Height="450" Width="690">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="RoundToggle" TargetType="{x:Type ToggleButton}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="border" CornerRadius="7" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <!--<Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>-->
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="8" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true" Margin="56,0,-56,0.4">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="220"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.ColumnSpan="2" Grid.Column="1" BorderBrush="Black" BorderThickness="2"/>
+        <StackPanel Grid.Column="0"  Grid.ColumnSpan="2" HorizontalAlignment="Left">
+            <ToggleButton x:Name="EMIBtn" Click="EMIBtn_Click" Width="65" Background="White" Height="65" Margin="35,23,0,0" Style="{DynamicResource RoundToggle}">
+                <Image Source="Assets/emi.png"/>
+            </ToggleButton>
+            <ToggleButton x:Name="LoanBtn" Click="LoanBtn_Click" Width="65" Background="#536162" Height="65" Margin="35,5,0,0" Style="{DynamicResource RoundToggle}">
+                <Image Source="Assets/loan.png"/>
+            </ToggleButton>
+            <ToggleButton x:Name="TenureBtn" Click="TenureBtn_Click" Width="65" Background="#536162" Height="65" Margin="35,5,0,0" Style="{DynamicResource RoundToggle}">
+                <Image Source="Assets/tenure.png"/>
+            </ToggleButton>
+            <ToggleButton x:Name="InterestBtn" Click="InterestBtn_Click" Width="65" Background="#536162" Height="65" Margin="35,5,0,0" Style="{DynamicResource RoundToggle}">
+                <Image Source="Assets/rate.jpg"/>
+            </ToggleButton>
+        </StackPanel>
+        <StackPanel x:Name="EmiPanel" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <StackPanel>
+                <Label Content="Loan Amount" FontFamily="Assets/#The Phantom" FontSize="15" Margin="50,35,0,10"/>
+                <TextBox x:Name="LoanText" LostFocus="LoanText_LostFocus" Width="150" Height="25" TextAlignment="Right" FontSize="20" FontFamily="Time New Roman" Text="0"/>
+                <Label Content="Tenure Period " FontFamily="Assets/#The Phantom" FontSize="15" Margin="50,10,0,10"/>
+                <StackPanel Orientation="Horizontal" Margin="67,0,0,0">
+                    <TextBox x:Name="TenureText" LostFocus="LoanText_LostFocus" Width="150" Height="25" TextAlignment="Right" FontSize="20" FontFamily="Time New Roman" Text="0"/>
+                    <ToggleButton x:Name="YR" Click="YR_Click" IsChecked="True" Content="YR" Width="25" Height="25" Margin="5,0,5,0"/>
+                    <ToggleButton x:Name="MO" Click="MO_Click" Content="MO" Width="25" Height="25"/>
+                </StackPanel>
+                <Label Content="Rate Percent" FontFamily="Assets/#The Phantom" FontSize="15" Margin="50,10,0,10"/>
+                <TextBox x:Name="RateText" LostFocus="LoanText_LostFocus" Width="150" Height="25" TextAlignment="Right" FontSize="20" FontFamily="Time New Roman" Text="0"/>
+                <Button x:Name="CalculateEMI" Click="CalculateEMI_Click" Content="CALCULATE EMI" Width="100" Height="30" Margin="70,15,0,0" FontFamily="Assets/#The Phantom" FontSize="12" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel x:Name="ResultPanel1" Visibility="Hidden" Grid.Column="2" Margin="25,0,0,0">
+                <TextBlock Text="RESULT" FontFamily="Assets/#The Phantom" HorizontalAlignment="Center" Margin="0,35,0,10" FontSize="20"/>
+                <Border BorderBrush="#1597bb" BorderThickness="3" Background="#151515" Height="180" Width="200">
+                    <StackPanel>
+                        <StackPanel Margin="0,5,0,0">
+                            <Label Content="Emi Amount :" Foreground="White" FontFamily="Assets/#The Phantom" FontSize="13"/>
+                            <Label x:Name="TotalEmi" HorizontalAlignment="Center"  Foreground="White" FontFamily="Times New Roman" FontSize="15"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Total Interest Payable :" Foreground="White" FontFamily="Assets/#The Phantom" FontSize="12"/>
+
+                            <Label x:Name="TotalInterest" HorizontalAlignment="Center" Margin="0,3,0,0" Foreground="White" FontFamily="Times New Roman" FontSize="16"/>
+                        </StackPanel>
+                        <StackPanel  >
+                            <Label Content="Total Amount Payable :" Foreground="White" FontFamily="Assets/#The Phantom" FontSize="12"/>
+
+                            <Label x:Name="TotaPAy" HorizontalAlignment="Center" Foreground="White" FontFamily="Times New Roman" FontSize="16" Margin="0,2,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+        </StackPanel>
+        <StackPanel x:Name="LoanPanel" Grid.Column="1" Visibility="Hidden" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <StackPanel >
+                <Label Content="Emi " FontFamily="Assets/#The Phantom" FontSize="15" Margin="50,35,0,10"/>
+                <TextBox x:Name="EmiText" LostFocus="EmiText_LostFocus" Width="150" Height="25" TextAlignment="Right" FontSize="20" FontFamily="Time New Roman" Text="0"/>
+                <Label Content="Tenure Period " FontFamily="Assets/#The Phantom" FontSize="15" Margin="50,10,0,10"/>
+                <StackPanel Orientation="Horizontal" Margin="67,0,0,0">
+                    <TextBox x:Name="TenureText2"  Width="150" Height="25" TextAlignment="Right" FontSize="20" FontFamily="Time New Roman" Text="0"/>
+                    <ToggleButton x:Name="YR1" Click="YR_Click" IsChecked="True" Content="YR" Width="25" Height="25" Margin="5,0,5,0"/>
+                    <ToggleButton x:Name="MO1" Click="MO_Click" Content="MO" Width="25" Height="25"/>
+                </StackPanel>
+                <Label Content="Interest" FontFamily="Assets/#The Phantom" FontSize="15" Margin="50,10,0,10"/>
+                <TextBox x:Name="RateText2" LostFocus="LoanText_LostFocus" Width="150" Height="25" TextAlignment="Right" FontSize="20" FontFamily="Time New Roman" Text="0"/>
+                <Button x:Name="CalculateLoan" Click="CalculateLoan_Click" Content="CALCULATE Loan" Width="100" Height="30" Margin="70,15,0,0" FontFamily="Assets/#The Phantom" FontSize="12" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2" x:Name="ResultPanel2" Visibility="Hidden" Margin="25,0,0,0">
+                <TextBlock Text="RESULT" FontFamily="Assets/#The Phantom" HorizontalAlignment="Center" Margin="0,30,0,10" FontSize="20"/>
+                <Border BorderBrush="#1597bb" BorderThickness="3" Background="#151515" Height="180" Width="200">
+                    <StackPanel>
+                        <StackPanel Margin="0,10,0,0">
+                            <Label Content="Principal Amount :" Foreground="White" FontFamily="Assets/#The Phantom" FontSize="13"/>
+                            <Label x:Name="TotalPrincipal" HorizontalAlignment="Center"  Foreground="White" FontFamily="Times New Roman" FontSize="15"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Total Interest Payable :" Foreground="White" FontFamily="Assets/#The Phantom" FontSize="12"/>
+
+                            <Label x:Name="TotalInterest2" HorizontalAlignment="Center"  Foreground="White" FontFamily="Times New Roman" FontSize="16"/>
+                        </StackPanel>
+                        <StackPanel  >
+                            <Label Content="Total Amount Payable :" Foreground="White" FontFamily="Assets/#The Phantom" FontSize="12"/>
+
+                            <Label x:Name="TotaPAy2" HorizontalAlignment="Center" Foreground="White" FontFamily="Times New Roman" FontSize="16" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="TenurePanel" Grid.Column="1" Visibility="Hidden" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <StackPanel>
+                <Label Content="Loan Amount" FontFamily="Assets/#The Phantom" FontSize="15" Margin="50,35,0,10"/>
+                <TextBox x:Name="LoanText3" Margin="100,0,0,0" LostFocus="LoanText3_LostFocus" Width="150" Height="25" TextAlignment="Right" FontSize="20" FontFamily="Time New Roman" Text="0"/>
+
+                <Label Content="Emi " FontFamily="Assets/#The Phantom" FontSize="15" Margin="50,0,0,10"/>
+                <TextBox x:Name="EmiText3" Margin="100,0,0,0" LostFocus="EmiText3_LostFocus" Width="150" Height="25" TextAlignment="Right" FontSize="20" FontFamily="Time New Roman" Text="0"/>
+
+                <Label Content="Interest" FontFamily="Assets/#The Phantom" FontSize="15" Margin="50,10,0,10"/>
+                <TextBox x:Name="RateText3" Margin="100,0,0,0" LostFocus="LoanText_LostFocus" Width="150" Height="25" TextAlignment="Right" FontSize="20" FontFamily="Time New Roman" Text="0"/>
+                <Button x:Name="CalculateTenure" Click="CalculateTenure_Click" Content="CALCULATE Time" Width="120" Height="30" Margin="60,15,0,0" FontFamily="Assets/#The Phantom" FontSize="12" FontWeight="Bold"/>
+
+            </StackPanel>
+            <StackPanel Grid.Column="2" x:Name="ResultPanel3" Visibility="Hidden" Margin="25,0,0,0">
+                <TextBlock Text="RESULT" FontFamily="Assets/#The Phantom" HorizontalAlignment="Center" Margin="0,30,0,10" FontSize="20"/>
+                <Border BorderBrush="#1597bb" BorderThickness="3" Background="#151515" Height="180" Width="200">
+                    <StackPanel>
+                        <StackPanel Margin="0,10,0,0">
+                            <Label Content="Loan Tenure :" Foreground="White" FontFamily="Assets/#The Phantom" FontSize="13"/>
+                            <Label x:Name="LoanTenure" HorizontalAlignment="Center"  Foreground="White" FontFamily="Times New Roman" FontSize="15"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Total Interest Payable :" Foreground="White" FontFamily="Assets/#The Phantom" FontSize="12"/>
+                            <Label x:Name="TotalInterest3" HorizontalAlignment="Center"  Foreground="White" FontFamily="Times New Roman" FontSize="16"/>
+                        </StackPanel>
+                        <StackPanel  >
+                            <Label Content="Total Amount Payable :" Foreground="White" FontFamily="Assets/#The Phantom" FontSize="12"/>
+                            <Label x:Name="TotaPAy3" HorizontalAlignment="Center" Foreground="White" FontFamily="Times New Roman" FontSize="16" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="RatePanel" Grid.Column="1" Visibility="Hidden" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <StackPanel>
+                <Label Content="Loan Amount" FontFamily="Assets/#The Phantom" FontSize="15" Margin="50,35,0,10"/>
+                <TextBox x:Name="LoanText4" LostFocus="LoanText4_LostFocus" Width="150" Height="25" TextAlignment="Right" FontSize="20" FontFamily="Time New Roman" Text="0"/>
+                <Label Content="Emi " FontFamily="Assets/#The Phantom" FontSize="15" Margin="50,0,0,10"/>
+                <TextBox x:Name="EmiText4" LostFocus="EmiText4_LostFocus" Width="150" Height="25" TextAlignment="Right" FontSize="20" FontFamily="Time New Roman" Text="0"/>
+                <Label Content="Loan Tenure " FontFamily="Assets/#The Phantom" FontSize="15" Margin="50,0,0,10"/>
+                <StackPanel Orientation="Horizontal" Margin="67,0,0,0">
+                    <TextBox x:Name="Tenure2" LostFocus="LoanText_LostFocus" Width="150" Height="25" TextAlignment="Right" FontSize="20" FontFamily="Time New Roman" Text="0"/>
+                    <ToggleButton x:Name="YR2" Click="YR_Click"  Content="YR" Width="25" Height="25" Margin="5,0,5,0"/>
+                    <ToggleButton x:Name="MO2" Click="MO_Click"  Content="MO" Width="25" Height="25"/>
+                </StackPanel>
+                <Button x:Name="CalculateInterest" Click="CalculateInterest_Click" Content="CALCULATE Rate of Interest" Width="220" Height="30" Margin="60,15,0,0" FontFamily="Assets/#The Phantom" FontSize="12" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2" x:Name="ResultPanel4"  Visibility="Hidden" Margin="25,0,0,0">
+                <TextBlock Text="RESULT" FontFamily="Assets/#The Phantom" HorizontalAlignment="Center" Margin="0,30,0,10" FontSize="20"/>
+                <Border BorderBrush="#1597bb" BorderThickness="3" Background="#151515" Height="180" Width="200">
+                    <StackPanel>
+                        <StackPanel Margin="0,10,0,0">
+                            <Label Content="Loan Intrest Rate :" Foreground="White" FontFamily="Assets/#The Phantom" FontSize="13"/>
+                            <Label x:Name="LoanIntrestRate" HorizontalAlignment="Center"  Foreground="White" FontFamily="Times New Roman" FontSize="15"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Total Interest Payable :" Foreground="White" FontFamily="Assets/#The Phantom" FontSize="12"/>
+                            <Label x:Name="TotalInterest4" HorizontalAlignment="Center"  Foreground="White" FontFamily="Times New Roman" FontSize="16"/>
+                        </StackPanel>
+                        <StackPanel  >
+                            <Label Content="Total Amount Payable :" Foreground="White" FontFamily="Assets/#The Phantom" FontSize="12"/>
+                            <Label x:Name="TotaPAy4" HorizontalAlignment="Center" Foreground="White" FontFamily="Times New Roman" FontSize="16" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

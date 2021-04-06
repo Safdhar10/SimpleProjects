@@ -1,0 +1,14 @@
+E:\SimpleProjects\Loan Calculator\Loan Calculator\bin\Debug\Loan Calculator.exe.config
+E:\SimpleProjects\Loan Calculator\Loan Calculator\bin\Debug\Loan Calculator.exe
+E:\SimpleProjects\Loan Calculator\Loan Calculator\bin\Debug\Loan Calculator.pdb
+E:\SimpleProjects\Loan Calculator\Loan Calculator\obj\Debug\Loan Calculator.csprojAssemblyReference.cache
+E:\SimpleProjects\Loan Calculator\Loan Calculator\obj\Debug\MainWindow.g.cs
+E:\SimpleProjects\Loan Calculator\Loan Calculator\obj\Debug\App.g.cs
+E:\SimpleProjects\Loan Calculator\Loan Calculator\obj\Debug\Loan Calculator_MarkupCompile.cache
+E:\SimpleProjects\Loan Calculator\Loan Calculator\obj\Debug\Loan Calculator_MarkupCompile.lref
+E:\SimpleProjects\Loan Calculator\Loan Calculator\obj\Debug\MainWindow.baml
+E:\SimpleProjects\Loan Calculator\Loan Calculator\obj\Debug\Loan Calculator.g.resources
+E:\SimpleProjects\Loan Calculator\Loan Calculator\obj\Debug\Loan_Calculator.Properties.Resources.resources
+E:\SimpleProjects\Loan Calculator\Loan Calculator\obj\Debug\Loan Calculator.csproj.GenerateResource.cache
+E:\SimpleProjects\Loan Calculator\Loan Calculator\obj\Debug\Loan Calculator.exe
+E:\SimpleProjects\Loan Calculator\Loan Calculator\obj\Debug\Loan Calculator.pdb
