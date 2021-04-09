@@ -86,8 +86,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Assets\Alphacentauri-MVY4p.ttf" />
-    <Resource Include="Assets\Contenderfreeversion-eZ596.otf" />
+    <Resource Include="Assets\OrbitronBold-10M0.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
